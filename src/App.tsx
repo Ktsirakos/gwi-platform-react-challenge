@@ -1,11 +1,12 @@
 import '@/App.css'
-import Header from '@/components/Header'
+import { RouterProvider } from 'react-router'
+import router from '@/config/routes'
 
 function App() {
 
   return (
     <div className='w-full h-screen'>
-      <Header />
+      <RouterProvider router={router} />
     </div>
   )
 }

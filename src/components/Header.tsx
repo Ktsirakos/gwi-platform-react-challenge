@@ -1,22 +1,29 @@
 import { Cat, Heart, PawPrint } from "lucide-react"
 import HeaderEntry from "./HeaderEntry"
+import { ROUTES } from "@/config/routes"
+import { useLocation } from "react-router"
 
 export default function Header() {
+
+    const location = useLocation()
 
     const links = [{
         icon: <Cat />,
         name: "Cats",
-        route: "/cats"
+        selected: false,
+        route: ROUTES.CATS
     },
     {
         icon: <PawPrint />,
         name: "Breeds",
-        route: "/breeds"
+        selected: false,
+        route: ROUTES.BREEDS
     },
     {
         icon: <Heart />,
         name: "Favourites",
-        route: "/favourites"
+        selected: false,
+        route: ROUTES.FAVOURITES
     }]
 
     return (
@@ -24,7 +31,7 @@ export default function Header() {
             <img src="https://www.globalwebindex.com/hubfs/gwi-logo.svg" width={100} height={100} />
             <div className="flex gap-10">
                 {links.map((l => (
-                    <HeaderEntry icon={l.icon} name={l.name} route={l.route} />
+                    <HeaderEntry currentPath={location.pathname} icon={l.icon} name={l.name} route={l.route} />
                 )))}
             </div>
             <p className="text-gray-400">Konstantinos Tsirakos</p>
