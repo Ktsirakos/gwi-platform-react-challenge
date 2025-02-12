@@ -1,7 +1,7 @@
 import { fetchCatById } from "@/lib/cat-api"
 import { Breed } from "@/types/cat-api-types"
-import { Loader2 } from "lucide-react"
 import { useEffect, useState } from "react"
+import Loading from "./Loading"
 
 export default function BreedCard({
     breed
@@ -20,11 +20,7 @@ export default function BreedCard({
 
     return (
         <div className="group transition-all duration-300 relative flex flex-col cursor-pointer hover:text-purple-500 text-black border-1 border-gray-700 rounded-3xl overflow-hidden h-90 items-center">
-            {loadingBreedReferenceImage && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <Loader2 className="w-12 h-12 animate-spin text-purple-500" />
-                </div>
-            )}
+            <Loading condition={loadingBreedReferenceImage} />
             <div className="flex-2 content-center ">
                 <p className="text-black text-xl group-hover:text-purple-500 group-hover:font-bold">{breed.name}</p>
             </div>
