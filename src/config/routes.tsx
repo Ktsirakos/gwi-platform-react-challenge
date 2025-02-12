@@ -13,10 +13,12 @@ interface RouteParams {
 export const ROUTES = {
     HOME: '/',
     CATS: '/cats',
-    CAT_DETAILS: (catId: RouteParams['catId']) => `/cats/${catId}`,
+    CATS_WITH_ID: '/cats/:id',
     BREEDS: '/breeds',
-    BREED_DETAILS: (breedId: RouteParams['breedId']) => `/breeds/${breedId}`,
+    BREEDS_WITH_ID: '/breeds/:id',
     FAVOURITES: '/favourites',
+    CAT_DETAILS: (catId: RouteParams['catId']) => `/cats/${catId}`,
+    BREED_DETAILS: (breedId: RouteParams['breedId']) => `/breeds/${breedId}`,
 } as const
 
 const routes = [
@@ -32,7 +34,15 @@ const routes = [
                 element: <Cats />,
             },
             {
+                path: ROUTES.CATS_WITH_ID,
+                element: <Cats />,
+            },
+            {
                 path: ROUTES.BREEDS,
+                element: <Breeds />,
+            },
+            {
+                path: ROUTES.BREEDS_WITH_ID,
                 element: <Breeds />,
             },
             {
