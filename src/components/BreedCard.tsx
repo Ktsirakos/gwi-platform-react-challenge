@@ -19,7 +19,7 @@ export default function BreedCard({
     }, [])
 
     return (
-        <div className="group transition-all duration-300 relative flex flex-col cursor-pointer hover:text-primary text-black border-1 border-gray-700 rounded-3xl overflow-hidden h-90 items-center">
+        <button className="group transition-all duration-300 relative flex flex-col hover:text-primary text-black border-1 border-gray-700 rounded-3xl overflow-hidden h-90 items-center">
             <Loading condition={loadingBreedReferenceImage} />
             <div className="flex-2 content-center ">
                 <p className="text-black text-xl group-hover:text-primary group-hover:font-bold">{breed.name}</p>
@@ -31,6 +31,6 @@ export default function BreedCard({
                         : <p className="font-bold text-2xl text-gray-400 p-5">No Reference Image</p>
                 }
             </div>
-        </div>
+        </button>
     )
 }
