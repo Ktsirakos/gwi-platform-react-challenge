@@ -3,9 +3,13 @@ import Header from "./components/Header"
 
 export default function Layout() {
     return (
-        <>
-            <Header />
-            <Outlet />
-        </>
+        <div className="flex flex-col h-full">
+            <div className="flex-1">
+                <Header />
+            </div>
+            <div className="flex-5">
+                <Outlet />
+            </div>
+        </div>
     )
 }
