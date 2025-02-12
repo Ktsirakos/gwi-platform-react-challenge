@@ -14,6 +14,15 @@ export const fetchRandomCats = async ({
     return response
 }
 
+export const fetchCatById = async ({ catId }: { catId: string }) => {
+
+    const response = await fetchClient(
+        `/images/${catId}`
+    ) as Cat
+
+    return response
+}
+
 export const fetchBreeds = async () => {
     const response = await fetchClient("/breeds") as Breed[]
     return response
