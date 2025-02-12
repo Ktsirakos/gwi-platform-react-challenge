@@ -15,8 +15,8 @@ export default function HeaderEntry({
         <div className={`
         flex gap-2 
         items-center 
-        ${currentPath === route ? 'text-purple-500' : 'text-gray-400'}
-        hover:text-purple-500`}>
+        ${currentPath === route ? 'text-primary' : 'text-gray-400'}
+        hover:text-primary`}>
             {icon}
             <Link className="text-2xl font-bold" to={route}>{name}</Link>
         </div>

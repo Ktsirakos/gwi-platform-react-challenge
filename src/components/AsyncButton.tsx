@@ -3,7 +3,7 @@ import Loading from "./Loading";
 
 export default function AsyncButton({ loading, onClick }: { loading: boolean, onClick: () => void }) {
     return (
-        <button onClick={onClick} className="relative flex flex-row gap-1 text-black h-15 hover:text-purple-500">
+        <button onClick={onClick} className="relative flex flex-row gap-1 text-black h-15 hover:text-primary">
             <Loading condition={loading} />
             {!loading ? <><ChevronDown /> Load more</> : null}
         </button>
