@@ -17,15 +17,15 @@ export default function Modal({
     if (!isOpen) return null;
 
     return (
-        <div className="fixed z-10 inset-0 w-full h-full">
+        <div className="fixed z-10 inset-0 w-full h-full overflow-scroll">
             <div className="absolute p-5 border-1 w-full h-full bg-gray-700 opacity-50">
             </div>
-            <div className="absolute inset-0 z-12 flex flex-col justify-self-center self-center w-2/4 h-9/10 bg-white rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 z-12 flex flex-col justify-self-center self-center w-2/4 h-9/10 bg-white rounded-2xl overflow-scroll">
                 <div className="flex-1 flex flex-row items-center justify-between p-5">
-                    <p className="text-black text-3xl">{title}</p>
+                    <p className="text-3xl">{title}</p>
                     <button className="text-gray-500 text-5xl hover:text-primary" onClick={onClose}><X /></button>
                 </div>
-                <div className="flex-11">
+                <div className="flex-11 mb-10">
                     {children}
                 </div>
             </div>
