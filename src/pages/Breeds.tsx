@@ -1,4 +1,3 @@
-import BreedAttributes from "@/components/BreedAttributes"
 import BreedPhotos from "@/components/BreedPhotos"
 import Card from "@/components/Card"
 import Modal from "@/components/Modal"
@@ -35,7 +34,6 @@ export default function Breeds() {
             <Modal isOpen={showBreedDetails} title="Breed Details" onClose={() => {
                 navigate(ROUTES.BREEDS)
             }}>
-                <BreedAttributes breedId={breedId} />
                 <BreedPhotos name={breedId} />
             </Modal>
         </>

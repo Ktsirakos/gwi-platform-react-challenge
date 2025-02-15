@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import Loading from "./Loading";
+import Loading from "@/components/Loading";
 
 export default function AsyncButton({ loading, onClick }: { loading: boolean, onClick: () => void }) {
     return (

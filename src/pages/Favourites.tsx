@@ -9,9 +9,18 @@ export default function Favourites() {
 
     return (
         <div className="grid grid-cols-3 gap-2 m-5">
-            {store.favourite.map(e => <Card url={e.url} onClick={() => {
-                navigate(ROUTES.CAT_DETAILS(e.id))
-            }} />)}
+            {store.favourite.map(e =>
+                <Card
+                    key={e.id}
+                    url={e.url}
+                    isFavourite={store.isFavourite(e.id + "")}
+                    onHeartPressed={() => {
+                        store.removeFromFavourite(e.id + "")
+                    }}
+                    onClick={() => {
+                        navigate(ROUTES.CAT_DETAILS(e.id + ""))
+                    }} />
+            )}
         </div>
 
     )

@@ -1,5 +1,5 @@
 import { Cat, Heart, PawPrint } from "lucide-react"
-import HeaderEntry from "./HeaderEntry"
+import HeaderEntry from "@/components/HeaderEntry"
 import { ROUTES } from "@/config/routes"
 import { useLocation } from "react-router"
 
@@ -31,7 +31,7 @@ export default function Header() {
             <img src="https://www.globalwebindex.com/hubfs/gwi-logo.svg" width={100} height={100} />
             <div className="flex gap-10">
                 {links.map((l => (
-                    <HeaderEntry currentPath={location.pathname} icon={l.icon} name={l.name} route={l.route} />
+                    <HeaderEntry key={l.route} currentPath={location.pathname} icon={l.icon} name={l.name} route={l.route} />
                 )))}
             </div>
             <p className="text-gray-400">Konstantinos Tsirakos</p>

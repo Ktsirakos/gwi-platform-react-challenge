@@ -1,6 +1,8 @@
+import { ROUTES } from "@/config/routes"
 import { Heart } from "lucide-react"
+import { Link } from "react-router"
 
-export default function Actions({ wikipediaLink, catIsFavourite, onAddToFavourites }: { onAddToFavourites: () => void, wikipediaLink?: string, catIsFavourite: boolean }) {
+export default function Actions({ breedId, wikipediaLink, catIsFavourite, onAddToFavourites }: { breedId?: string, onAddToFavourites: () => void, wikipediaLink?: string, catIsFavourite: boolean }) {
     const favouriteElementText =
         catIsFavourite
             ? <><Heart color="red" fill="red" /><p className="text-red-500">Remove from favourites</p></>
@@ -12,6 +14,7 @@ export default function Actions({ wikipediaLink, catIsFavourite, onAddToFavourit
             <button className="flex flex-row gap-2" onClick={onAddToFavourites}>
                 {favouriteElementText}
             </button>
-        </div>
+            {breedId && <Link className="text-blue-500 flex flex-row underline align-center gap-2" to={ROUTES.BREED_DETAILS(breedId)}>Show more cats</Link>}
+        </div >
     )
 }

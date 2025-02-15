@@ -3,8 +3,8 @@ import { fetchRandomCats } from "@/lib/cat-api"
 import { Cat } from "@/types/cat-api-types"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import Loading from "./Loading";
-import LazyImage from "./LazyImage";
+import Loading from "@/components/Loading";
+import LazyImage from "@/components/LazyImage";
 
 export default function BreedPhotos({ name }: { name?: string }) {
 
@@ -24,7 +24,7 @@ export default function BreedPhotos({ name }: { name?: string }) {
     return (
         <>
             <p className="text-black text-2xl mb-5">Cats with that breed</p>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-2">
                 {
                     cats.map(e =>
                         <button className="h-50" onClick={() => navigate(ROUTES.CAT_DETAILS(e.id))}>

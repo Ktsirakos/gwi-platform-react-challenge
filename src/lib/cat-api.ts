@@ -1,4 +1,4 @@
-import { fetchClient } from "./api-client"
+import { fetchClient } from "@/lib/api-client"
 import { Breed, Cat } from "@/types/cat-api-types"
 
 export const fetchRandomCats = async ({

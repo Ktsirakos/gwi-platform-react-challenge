@@ -1,7 +1,5 @@
-import { fetchBreedById } from "@/lib/cat-api";
 import { Breed } from "@/types/cat-api-types";
-import { useEffect, useState } from "react";
-import Loading from "./Loading";
+
 
 const AttributeSection = ({ title, data }: { title: string, data: { label: string, value: string | number }[] }) => {
     return (
@@ -20,20 +18,11 @@ const AttributeSection = ({ title, data }: { title: string, data: { label: strin
     )
 }
 
-export default function BreedAttributes({ breedId }: { breedId?: string }) {
-
-    const [breed, setBreed] = useState<Breed | undefined>(undefined)
-    const [loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        if (!breedId) return;
-        setLoading(true)
-        fetchBreedById({ breedId }).then((value) => setBreed(value)).finally(() => setLoading(false))
-    }, [])
+export default function BreedAttributes({ breed }: { breed?: Breed }) {
 
     if (!breed) return (
         <div className="m-10">
-            <p className="text-3xl font-bold">No breed information available!</p>
+            <p className="text-3xl font-bold text-black">No breed information available!</p>
         </div>
     )
 
@@ -72,16 +61,9 @@ export default function BreedAttributes({ breedId }: { breedId?: string }) {
 
     return (
         <div className="p-5">
-            <Loading condition={loading} />
-            {
-                !loading && (
-                    <>
-                        <AttributeSection title={"General"} data={coreDetails} />
-                        <AttributeSection title={"Characteristics"} data={characteristics} />
-                        <AttributeSection title={"Traits"} data={traits} />
-                    </>
-                )
-            }
+            <AttributeSection title={"General"} data={coreDetails} />
+            <AttributeSection title={"Characteristics"} data={characteristics} />
+            <AttributeSection title={"Traits"} data={traits} />
         </div>
     )
 }
