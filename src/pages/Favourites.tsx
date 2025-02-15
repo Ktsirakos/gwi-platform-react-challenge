@@ -13,12 +13,12 @@ export default function Favourites() {
                 <Card
                     key={e.id}
                     url={e.url}
-                    isFavourite={store.isFavourite(e.id + "")}
+                    isFavourite={store.isFavourite(String(e.id))}
                     onHeartPressed={() => {
-                        store.removeFromFavourite(e.id + "")
+                        store.removeFromFavourite(String(e.id))
                     }}
                     onClick={() => {
-                        navigate(ROUTES.CAT_DETAILS(e.id + ""))
+                        navigate(ROUTES.CAT_DETAILS(String(e.id)))
                     }} />
             )}
         </div>
