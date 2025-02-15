@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import { fetchCatById } from "@/lib/cat-api";
+import LazyImage from "./LazyImage";
 
 export default function Card({ title, referenceImage, url, onClick }: { title?: string, url?: string, referenceImage?: string, onClick: () => void }) {
 
@@ -38,7 +39,7 @@ export default function Card({ title, referenceImage, url, onClick }: { title?: 
             </div>
             <div className="flex-10 h-full content-center">
                 {
-                    localUrl && <img onLoad={() => setLoading(false)} className={`transition-all duration-300 ease-in-out hover:scale-125 object-cover w-full h-full ${loading ? 'opacity-0' : 'opacity-100'}`} src={localUrl} />
+                    localUrl && <LazyImage onFinishLoading={() => setLoading(false)} url={localUrl} />
                 }
                 {
                     showNoImagePlaceholder && <p className="font-bold text-2xl text-gray-400 p-5">No Reference Image</p>

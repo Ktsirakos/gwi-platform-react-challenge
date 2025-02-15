@@ -4,6 +4,7 @@ import { Cat } from "@/types/cat-api-types"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
 import Loading from "./Loading";
+import LazyImage from "./LazyImage";
 
 export default function BreedPhotos({ name }: { name?: string }) {
 
@@ -27,7 +28,7 @@ export default function BreedPhotos({ name }: { name?: string }) {
                 {
                     cats.map(e =>
                         <button className="h-50" onClick={() => navigate(ROUTES.CAT_DETAILS(e.id))}>
-                            <img className={`transition-all duration-300 ease-in-out hover:scale-125 object-cover w-full h-full opacity-100`} src={e.url} />
+                            <LazyImage onFinishLoading={() => setLoading(false)} url={e.url} />
                         </button>)
                 }
             </div>
