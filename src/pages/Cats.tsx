@@ -1,6 +1,6 @@
 import AsyncButton from "@/components/AsyncButton"
-import CatCard from "@/components/CatCard"
-import Modal from "@/components/Modal"
+import Card from "@/components/Card"
+import CatDetailsModal from "@/components/CatDetailsModal"
 import { ROUTES } from "@/config/routes"
 import { fetchRandomCats } from "@/lib/cat-api"
 import { Cat } from "@/types/cat-api-types"
@@ -47,11 +47,9 @@ export default function Cats() {
                 </div>
 
             </div>
-            <Modal isOpen={showCatDetails} title="Cat Details" onClose={() => {
+            <CatDetailsModal isOpen={showCatDetails} catId={catId} onClose={() => {
                 navigate(ROUTES.CATS)
-            }}>
-                <p className="text-black">Cat Details content</p>
-            </Modal>
+            }} />
         </>
     )
 }

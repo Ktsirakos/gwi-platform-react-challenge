@@ -3,6 +3,7 @@ export interface Cat {
     width: number,
     height: number,
     url: string,
+    breeds?: Breed[]
 }
 
 export interface Breed {
