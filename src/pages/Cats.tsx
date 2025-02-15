@@ -37,7 +37,7 @@ export default function Cats() {
             <div className="flex-1">
                 <div className="grid grid-cols-5 gap-2 mb-5">
                     {
-                        cats.map((cat) => <CatCard key={cat.id} cat={cat} onClick={() => {
+                        cats.map((cat) => <Card key={cat.id} url={cat.url} onClick={() => {
                             navigate(ROUTES.CAT_DETAILS(cat.id))
                         }} />)
                     }

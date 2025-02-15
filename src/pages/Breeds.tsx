@@ -11,11 +11,13 @@ export default function Breeds() {
     }, [])
 
     return (
-        <div className="flex-1">
-            <div className="grid grid-cols-5 gap-2 mb-5">
-                {
-                    breeds.map((breed) => <BreedCard key={breed.id} breed={breed} />)
-                }
+        <>
+            <div className="flex-1">
+                <div className="grid grid-cols-5 gap-2 mb-5">
+                    {
+                        breeds.map((breed) => <Card key={breed.id} referenceImage={breed.reference_image_id} title={breed.name} onClick={() => navigate(ROUTES.BREED_DETAILS(breed.id))} />)
+                    }
+                </div>
             </div>
         </div>)
 }
